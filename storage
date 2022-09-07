@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters" :
+  {
+	"storageAccountName":
+		{
+			"type": "String",
+			"metadata": 
+				{
+					"description": "Enter the name for storage:,
+				}
+		},
+   "containerName": 
+		{
+			"type": "String",
+			"defaultValue": "azarchnewcontainer",
+			"metadata": 
+				{
+					"description": "Enter the name of container:,
+				}
+		},
+   "location": 
+		{
+			"type": "String",
+			"defaultValue": "[resourceGroup().location]",
+   
+			"description": "specifies the name of Location":,
+		}
+  }
+
+
+"resources":
+[
+{
+	"type": "Microsoft.Storage/storageAccounts",
+	"apiVersion": "2019-06-01",
+	"name": "[parameters('storageAccountName')]",
+	"location": "[parameters('location')]",
+	"sku": 
+		{
+			"name": "standard_LRS",
+			"tier": "Standard"
+		}
+	"kind": "StorageV2",
+	"properties": 
+		{
+			"accessTier": "Hot"
+		},
+	"resources":
+	[
+		{
+			"type": "blobServices/containers",
+			"apiVersion": "2019-06-01",
+			"name": "[concat('default/', parameters('containerName'))]",
+			"dependsOn": 
+				[
+					"[parameters('storageAccountName')]",
+				]
+		}
+	]
+}
+]
