@@ -1,0 +1,74 @@
+{
+ "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json Jump #",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+ "location": {
+ "value": "eastus"
+ },
+ "networkInterfaceName": {
+ "value": "azuretestvm974"
+ },
+ "networkSecurityGroupName": {
+ "value": "AzureTestVM-nsg"
+ },
+ "networkSecurityGroupRules": {
+ "value": [
+ {
+ "name": "RDP",
+ "properties": {
+ "priority": 300,
+ "protocol": "TCP",
+ "access": "Allow",
+ "direction": "Inbound",
+ "sourceAddressPrefix": "*",
+ "sourcePortRange": "*",
+ "destinationAddressPrefix": "*",
+ "destinationPortRange": "3389"
+ }
+ }
+ ]
+ },
+ "subnetName": {
+ "value": "default"
+ },
+ "virtualNetworkId": {
+ "value": "/subscriptions/6400b22f-788d-48da-a164-b915c9678bd1/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/Test-vnet"
+ },
+ "publicIpAddressName": {
+ "value": "AzureTestVM-ip"
+ },
+ "publicIpAddressType": {
+ "value": "Static"
+ },
+ "publicIpAddressSku": {
+ "value": "Standard"
+ },
+ "virtualMachineName": {
+ "value": "AzureTestVM"
+ },
+ "virtualMachineRG": {
+ "value": "Test"
+ },
+ "osDiskType": {
+ "value": "Standard_LRS"
+ },
+ "virtualMachineSize": {
+ "value": "Standard_DS1_v2"
+ },
+ "adminUsername": {
+ "value": "Shashank"
+ },
+ "adminPassword": {
+ "value": null
+ },
+ "diagnosticsStorageAccountName": {
+ "value": "storageacc621"
+ },
+ "diagnosticsStorageAccountId": {
+ "value": "/subscriptions/6400b22f-788d-48da-a164-b915c9678bd1/resourceGroups/Test/providers/Microsoft.Storage/storageAccounts/storageacc621"
+ },
+ "zone": {
+ "value": "3"
+ }
+ }
+}
