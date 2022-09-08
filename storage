@@ -1,14 +1,14 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters" :
+  "parameters":
   {
 	"storageAccountName":
 		{
 			"type": "String",
 			"metadata": 
 				{
-					"description": "Enter the name for storage:,
+					"description": "Enter the name for storage",
 				}
 		},
    "containerName": 
@@ -17,16 +17,15 @@
 			"defaultValue": "azarchnewcontainer",
 			"metadata": 
 				{
-					"description": "Enter the name of container:,
+					"description": "Enter the name of container",
 				}
 		},
    "location": 
 		{
 			"type": "String",
 			"defaultValue": "[resourceGroup().location]",
-   
-			"description": "specifies the name of Location":,
-		}
+			"description": "specifies the name of Location",
+		},
   }
 
 
